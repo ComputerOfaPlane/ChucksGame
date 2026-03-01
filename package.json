@@ -1,0 +1,34 @@
+{
+  "name": "chucksgame",
+  "version": "1.0.0",
+  "description": "Chucks is a simple hand cricket game we(me & my friends) used to play while commuting back from school. It required 10 different hand gestures to make runs and bowl. There were two teams, one would bowl the other would bat. The game was divided into two innings. Just like the original cricket game.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vaibhav-Choudhary/ChucksGame.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Vaibhav-Choudhary/ChucksGame/issues"
+  },
+  "homepage": "https://github.com/Vaibhav-Choudhary/ChucksGame#readme",
+  "dependencies": {
+    "@prisma/client": "^7.4.2",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "socket.io": "^4.8.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14",
+    "prisma": "^7.4.2"
+  }
+}
