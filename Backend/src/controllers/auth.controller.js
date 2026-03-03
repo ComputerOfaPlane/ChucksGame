@@ -8,12 +8,12 @@ exports.registerUser = async (req, res) => {
   try {
     const { username, email, password } = req.body;
 
-    // 1️⃣ Basic validation
+    // Basic validation
     if (!username || !email || !password) {
       return res.status(400).json({ message: "All fields are required" });
     }
 
-    // 2️⃣ Check if user already exists
+    // Check if user already exists
     const existingUser = await prisma.user.findFirst({
       where: {
         OR: [{ email }, { username }]
@@ -24,10 +24,10 @@ exports.registerUser = async (req, res) => {
       return res.status(400).json({ message: "User already exists" });
     }
 
-    // 3️⃣ Hash password
+    // Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // 4️⃣ Create user
+    // Create user
     const newUser = await prisma.user.create({
       data: {
         username,
@@ -56,12 +56,12 @@ exports.loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // 1️⃣ Validation
+    // Validation
     if (!email || !password) {
       return res.status(400).json({ message: "Email and password required" });
     }
 
-    // 2️⃣ Find user
+    // Find user
     const user = await prisma.user.findUnique({
       where: { email }
     });
@@ -77,7 +77,7 @@ exports.loginUser = async (req, res) => {
       return res.status(400).json({ message: "Invalid credentials" });
     }
 
-    // 4️⃣ Generate JWT
+    //Generate JWT
     const token = jwt.sign(
       { userId: user.id },
       process.env.JWT_SECRET,
